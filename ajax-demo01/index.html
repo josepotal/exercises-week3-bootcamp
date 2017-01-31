@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+    <h1></h1>
+    <h2></h2>
+    <button id="click-me">Click Me!!</button>
+
+
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script>
+
+      $("#click-me").on("click", function() {
+
+        $.ajax({
+          url: 'data.json'
+        })
+        .done( function( response ) {
+          var title = response.data.items[0].title
+          $("h1").html(title)
+          
+          
+        })
+
+      })
+
+    </script>
+</body>
+</html>

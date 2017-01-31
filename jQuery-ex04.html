@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+  <button id="generate">Generate content</button>
+  <div class="container-cards"></div>
+
+  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <!-- Latest compiled and minified JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script>
+
+    // var aStudents = ['Xavier', 'Ignasi', 'Ernesto', 'Stivali', 'Fran', 'Ezequiel', 'Alejandro', 'Oscar']
+
+    var aStudents = [{
+      name: 'Xavier',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, quaerat.'
+    },
+    {
+      name: 'Ignasi',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, veniam.'
+    },
+    {
+      name: 'Ernesto',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, quaerat.'
+    },
+    {
+      name: 'Stivali',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, veniam.'
+    }];
+
+    $("#generate").on("click", function() {
+
+      var templateCard = '' +
+        '<section id="<%ID%>" class="col-md-4 col-sm-6">' +
+          '<h2><%NAME%></h2>' +
+          '<p><%DESC%></p>' +
+          '<button type="button" class="btn btn-primary">button</button>' +
+        '</section>'
+
+      var htmlCardsStudents = '';
+
+      $.each(aStudents, function(index, elem) {
+
+        var cardStudent = templateCard;
+        cardStudent = cardStudent.replace("<%ID%>", "student" + index );
+        cardStudent = cardStudent.replace("<%NAME%>", elem.name);
+        cardStudent = cardStudent.replace("<%DESC%>", elem.desc);
+        htmlCardsStudents += cardStudent
+
+      })
+
+      $(".container-cards").html( htmlCardsStudents )
+
+    })
+
+    $(".container-cards").on("click", function(e) {
+      var $button = $(e.target)
+      var $container = $button.parent()
+      var $h2 = $container.find("h2")
+      var nameStudent = $h2.text();
+      alert("The selected student is " + nameStudent)
+    })
+
+    $("body").on("click", function(e) {
+      console.log("click in a " + e.target.nodeName )
+    })
+/*
+  <section>
+    <h2>Student Name</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea iste eveniet, aut. Reprehenderit non, dolor repudiandae illum, eos id minus qui nisi quod magnam, voluptate commodi? Sed nemo, reiciendis aperiam.</p>
+  </section>
+*/
+
+  </script>
+
+  <script>
+
+
+
+  </script>
+</body>
+</html>

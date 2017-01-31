@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+  <ul>
+    <li>Carles</li>
+    <li>Jonas</li>
+    <li>Bijay</li>
+    <li>Josep</li>
+  </ul>
+  <button>Click me</button>
+
+  <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <!-- Latest compiled and minified JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script>
+
+    var students = ['Xavier', 'Ignasi', 'Ernesto', 'Stivali', 'Fran', 'Ezequiel', 'Alejandro', 'Oscar']
+
+    $("button").on("click", function(e){
+
+      //var studentsHtml = $("ul").html();
+
+      $.each(students, function(index, elem) {
+        // studentsHtml += "<li>" + elem + "</li>"
+        $("<li>" + elem + "</li>").appendTo( $("ul") )
+      })
+
+      //$("ul").html(studentsHtml);
+
+    })
+
+    $("ul").on("click", function(e) {
+      var content = $(e.target).text()
+      alert(content)
+    })
+
+  </script>
+</body>
+</html>
