@@ -8,12 +8,7 @@
 </head>
 <body>
 
-  <ul>
-    <li>Carles</li>
-    <li>Jonas</li>
-    <li>Bijay</li>
-    <li>Josep</li>
-  </ul>
+  <ul></ul>
   <button>Click me</button>
 
   <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
@@ -24,16 +19,12 @@
     var students = ['Xavier', 'Ignasi', 'Ernesto', 'Stivali', 'Fran', 'Ezequiel', 'Alejandro', 'Oscar']
 
     $("button").on("click", function(e){
-
       //var studentsHtml = $("ul").html();
-
       $.each(students, function(index, elem) {
-        // studentsHtml += "<li>" + elem + "</li>"
-        $("<li>" + elem + "</li>").appendTo( $("ul") )
-      })
-
-      //$("ul").html(studentsHtml);
-
+      // studentsHtml += "<li>" + elem + "</li>"
+      $("<li>" + elem + "</li>").appendTo( $("ul") )
+    })
+    //$("ul").html(studentsHtml);
     })
 
     $("ul").on("click", function(e) {
